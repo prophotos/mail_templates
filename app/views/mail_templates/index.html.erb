@@ -1,0 +1,10 @@
+<% @title = "Почтовые рассылки" %>
+
+<%= link_to "В админку", :controller => :admin, :action => :super %><br/><br/>
+<ul>
+<% @mail_templates.each do |mail_template| %>
+	<li><%= link_to mail_template.display_name, edit_mail_template_url(mail_template) %></li>
+<% end %>
+</ul>
+<br />
+<%= link_to 'Создать новый шаблон', new_mail_template_path %>
