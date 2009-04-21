@@ -1,7 +1,7 @@
 class CreateMailTemplates < ActiveRecord::Migration
   def self.up
     create_table :mail_templates do |t|
-      t.string :name
+      t.string :name, :null => false
       t.string :display_name
       t.string :subject
       t.text :body
