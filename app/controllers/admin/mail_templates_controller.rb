@@ -1,5 +1,6 @@
-class MailTemplatesController < ApplicationController
-  before_filter :require_admin
+class Admin::MailTemplatesController < ApplicationController
+  layout "admin"
+  require_admin
   preload :mail_template!, :field => :name, :only => [:test, :update, :destroy]
 
   def test
