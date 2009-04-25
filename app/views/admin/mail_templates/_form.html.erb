@@ -1,6 +1,5 @@
 
-<% form_for @mail_template do |f| %>
-    <input type="hidden" name="_method" value="post"/>
+<% form_for [:admin, @mail_template] do |f| %>
     <p>
       <%= f.label :name, 'Кодовое название шаблона (внимательно)' %><br/>
       <%= f.text_field :name %>

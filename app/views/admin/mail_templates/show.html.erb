@@ -1,6 +1,6 @@
 <% @title = "Почтовые рассылки" %>
 
-<%= link_to "К списку", mail_templates_path %>
+<%= link_to "К списку", admin_mail_templates_path %>
 
 <% if flash[:notice] %>
     <div style="border: 1px red solid; color: green; background-color: darkgray;">
@@ -12,8 +12,8 @@
 <p style="font-size:smaller;">последнее изменение: <%= distance_of_time_in_words_to_now(@mail_template.updated_at) %> назад</p>
 <table>
   <tr>
-    <td><%= button_to 'Протестировать', [:test, @mail_template] %></td>
-    <td><%= button_to 'Удалить', @mail_template, :confirm => 'Точно?', :method => :delete %></td>
+    <td><%= button_to 'Протестировать', [:test, :admin, @mail_template] %></td>
+    <td><%= button_to 'Удалить', [:admin, @mail_template], :confirm => 'Точно?', :method => :delete %></td>
   </tr>
 </table>
 <%= render :partial => "form" %>

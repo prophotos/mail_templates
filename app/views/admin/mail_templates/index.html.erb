@@ -3,8 +3,8 @@
 <%= link_to "В админку", admin_path %><br/><br/>
 <ul>
 <% @mail_templates.each do |mail_template| %>
-	<li><%= link_to mail_template.display_name, mail_template %></li>
+	<li><%= link_to mail_template.display_name, [:admin, mail_template] %></li>
 <% end %>
 </ul>
 <br />
-<%= link_to 'Создать новый шаблон', new_mail_template_path %>
+<%= link_to 'Создать новый шаблон', new_admin_mail_template_path %>
