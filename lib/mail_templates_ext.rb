@@ -1,5 +1,4 @@
-::ActionMailer::Base.class_eval do
-
+module MailTemplatesExt
   def render_message(method_name, assigns)
     template     = MailTemplate.find_by_name(method_name)
     Rails.logger.debug "Loading mail template #{method_name} from MailTemplate"
@@ -19,5 +18,4 @@
     template = initialize_template_class(assigns)
     template.render(:inline => inline_template)
   end
-
 end
