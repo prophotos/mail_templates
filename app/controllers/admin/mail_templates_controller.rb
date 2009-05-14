@@ -4,7 +4,7 @@ class Admin::MailTemplatesController < ApplicationController
   preload :mail_template!, :field => :name, :only => [:test, :update, :destroy, :show]
 
   def test
-    Notifier.send("test_#{@mail_template.name}", @logged_user)
+    Notifier.send("test_#{@mail_template.name}", current_user)
     redirect_to [:admin, @mail_template]
   end
 
