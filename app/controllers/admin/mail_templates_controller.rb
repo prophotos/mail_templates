@@ -33,7 +33,7 @@ class Admin::MailTemplatesController < ApplicationController
     if @mail_template.save
       redirect_to [:admin, @mail_template]
     else
-      render :action => new
+      render :action => "new"
     end
   end
 
