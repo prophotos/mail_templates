@@ -4,7 +4,11 @@ class Admin::MailTemplatesController < ApplicationController
   preload :mail_template!, :field => :name, :only => [:test, :update, :destroy, :show]
 
   def test
-    Notifier.send("test_#{@mail_template.name}", current_user)
+    method = "test_#{@mail_template.name}"
+    klass = Notifier.respond_to?(method) ? Notifier :
+     ClearanceMailer.respond_to?(method) ? ClearanceMailer : nil
+    
+    klass.send(method, current_user)
     redirect_to [:admin, @mail_template]
   end
 
